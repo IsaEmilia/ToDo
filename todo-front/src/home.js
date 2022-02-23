@@ -1,53 +1,27 @@
 import React, { useState, useEffect } from 'react';
+import Todos from './TodoTables';
 
-const Home =() =>{
+const Home = (useState, useEffect) =>{
+    
     return(
         <div className='wrap'>
             <div className='header'>
-                <h1>HOME</h1>   
+                <h1>HOME</h1>  
+                <ul>
+                    <li><a href='/Login.js'>Log in</a></li>
+                    <li><a>Register</a></li>
+                </ul> 
             </div>
             <div className='content'>
-                <ul>
-                    <li><a>Log in</a></li>
-                    <li><a>Register</a></li>
-                </ul>
-                <div className='todotable'>
-                <h5>TODO Title</h5>
-                    <table>
-                    <tr>
-                        <th>Task</th>
-                        <th>Added</th>  
-                        <th>User</th>
-                        <th>Done</th>
-                        <th>Actions</th>
-                    </tr>
-                    </table>
-                </div>
-                <div className='todotable'>
-                <h5>TODO Title</h5>
-                    <table>
-                    <tr>
-                        <th>Task</th>
-                        <th>Added</th>  
-                        <th>User</th>
-                        <th>Done</th>
-                        <th>Actions</th>
-                    </tr>
-                    </table>
-                </div>
-                <div className='todotable'>
-                <h5>TODO Title</h5>
-                    <table>
-                    <tr>
-                        <th>Task</th>
-                        <th>Added</th>  
-                        <th>User</th>
-                        <th>Done</th>
-                        <th>Actions</th>
-                    </tr>
-                    </table>
-                </div>
+               
+
+                <Todos/>
+                <Todos/>
+                <Todos/>
             </div>
+                <button id='add-butt'>
+                    <a>Add a new list</a>
+                </button>
             <footer>footer</footer>
         </div>
         

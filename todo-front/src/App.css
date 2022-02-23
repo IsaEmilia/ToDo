@@ -1,5 +1,5 @@
 *{
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .wrap{
   display: flex;
@@ -13,9 +13,20 @@
   flex-direction: row;
   align-content: center;
   justify-content: center;
-  background-color: aquamarine;
+  gap: 20px;
+  background-color: rgb(255, 203, 211);
   width: 100%;
   padding: 20px 0;
+}
+h1{
+  padding: 10px;
+}
+ul{
+  align-content: flex-end;
+  justify-content: flex-end;
+  list-style: none;
+  padding: 20px;
+  width: auto;
 }
 .content{
   display: flex;
@@ -23,24 +34,44 @@
   align-content: flex-start;
   justify-content: flex-start;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 10px;
+  padding: 0 30px;
+  height: 100%;
 }
-ul{
-  align-content: flex-start;
-  justify-content: flex-start;
-  list-style: none;
-  padding: 20px;
-  width: 1fr;
-}
+
 .todotable{
   padding: 30px 50px;
   align-content: center;
   justify-content: center;
   flex: 2;
 }
-.rightside{
-  flex: 3;
-  padding: 20px;
+.buttons{
+  float: right;
+}
+table{
+  align-items: left;
+  align-content: left;
+  padding: 10px;
+  border: 4px solid pink;
+  border-radius: 20px;  
+  min-width: 100%;
+  color: rgb(185, 86, 119);
+}
+th{
+  border-bottom: 1px solid palevioletred;
+}
+td{
+  padding: 5px;
+}
+a{
+  text-decoration: none;
+  color: brown;
+}
+a:hover{
+  color: rgba(0, 0, 0, 0.795);
+}
+#add-butt{
+  width: 100px;
 }
 footer{
   display: flex;
@@ -49,4 +80,6 @@ footer{
   padding: 20px;
   background-color: rgb(156, 156, 156);
   height: 80px;
+
+  
 }
