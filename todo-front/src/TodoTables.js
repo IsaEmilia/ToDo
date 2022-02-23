@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 
 
 // Rendering ToDo tables and entries
+//const [todo, setTodo] 
 
-const Todos = () => {
+const Todos = (props) => {
 
     return (
         <div>
@@ -12,7 +13,6 @@ const Todos = () => {
                 <th>Task</th>
                 <th>Added</th>  
                 <th>User</th>
-
                 <th>Actions</th>
             </tr>
             <tr>
@@ -28,6 +28,12 @@ const Todos = () => {
                 </td>  
             </tr>
         </table>
+        <form >
+            <input type="text" placeholder='type something'></input>
+            <button>
+                new entry
+            </button>
+        </form>
         </div>
     )
 }

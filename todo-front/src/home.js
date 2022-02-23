@@ -23,8 +23,7 @@ const Home = (useState, useEffect) =>{
                     <a>Add a new list</a>
                 </button>
             <footer>footer</footer>
-        </div>
-        
+        </div>  
     )
 }
 
