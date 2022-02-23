@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template, url_for, request, redirect, session, jsonify, FlaskForm
+from flask import Flask, redirect, render_template, url_for, request, redirect, session, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
@@ -11,10 +11,14 @@ from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import InputRequired, Length, ValidationError
 from flask_bcrypt import Bcrypt
 
+# ^ important imports ^
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+
+# Initializing extensions
 db = SQLAlchemy(app)
 migrate = Migrate()
 ma = Marshmallow(app)
@@ -127,13 +131,15 @@ def dashboard():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('index'))
+    return redirect(url_for('home'))
+
+
 
 
 
 # code for adding new entries
 @app.route('/', methods=['POST', 'GET'])
-@login_required
+#@login_required
 def index():
     if request.method == 'POST':
         task_content = request.form['content']
@@ -179,13 +185,6 @@ def update(id):
     else:
         return render_template('update.html', task=task)
 
-
-
-# Members API route ?
-
-@app.route("/members")
-def home():
-    return "hoi"
 
 if __name__ == '__main__':
     app.run(debug=True)
