@@ -30,7 +30,7 @@ const Todos = (props) => {
         </table>
         <form >
             <input type="text" placeholder='type something'></input>
-            <button>
+            <button className='submit'>
                 new entry
             </button>
         </form>

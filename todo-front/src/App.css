@@ -72,6 +72,40 @@ a:hover{
 }
 #add-butt{
   width: 100px;
+  border-radius: 10px;
+  padding: 5px;
+  border: 2px solid palevioletred;
+  background-color: rgb(255, 196, 196);
+}
+#add-butt:hover{
+  width: 100px;
+  border-radius: 10px;
+  padding: 5px;
+  border: 2px solid rgb(165, 79, 107);
+  background-color: rgb(207, 123, 135);
+}
+.submit{
+  border-radius: 10px;
+  padding: 5px;
+  border: 2px solid palevioletred;
+  background-color: rgb(255, 196, 196);
+  color: rgb(16, 16, 17);
+  font-weight: 300;
+}
+.submit:hover{
+  border-radius: 10px;
+  padding: 5px;
+  border: 2px solid rgb(165, 79, 107);
+  background-color: rgb(207, 123, 135);
+  color: blanchedalmond;
+}
+input{
+  border-radius: 10px;
+  padding: 5px;
+  font-variant: small-caps;
+  letter-spacing: 1px;
+  margin: 10px;
+  border: 2px solid palevioletred;
 }
 footer{
   display: flex;
