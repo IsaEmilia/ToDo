@@ -6,7 +6,7 @@ const Home = (useState, useEffect) =>{
     return(
         <div className='wrap'>
             <div className='header'>
-                <h1>HOME</h1>  
+                <h1>&#171; HOME &#187;</h1>  
                 <ul>
                     <li><a href='/Login.js'>Log in</a></li>
                     <li><a>Register</a></li>
@@ -20,7 +20,7 @@ const Home = (useState, useEffect) =>{
                 <Todos/>
             </div>
                 <button id='add-butt'>
-                    <a>Add a new list</a>
+                &#10010; &#128203;
                 </button>
             <footer>footer</footer>
         </div>  

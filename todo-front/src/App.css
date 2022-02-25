@@ -17,9 +17,11 @@
   background-color: rgb(255, 203, 211);
   width: 100%;
   padding: 20px 0;
+  font-variant: small-caps;
 }
 h1{
   padding: 10px;
+  color: #343b3e;
 }
 ul{
   align-content: flex-end;
@@ -65,39 +67,44 @@ td{
 }
 a{
   text-decoration: none;
-  color: brown;
+  color: #9E6461;
 }
 a:hover{
-  color: rgba(0, 0, 0, 0.795);
+  color: #343b3e;
+}
+a:visited{
+  color: #DDA8B9;
 }
 #add-butt{
   width: 100px;
   border-radius: 10px;
   padding: 5px;
-  border: 2px solid palevioletred;
+  border: 2px solid #9E6461;
   background-color: rgb(255, 196, 196);
+  font-size: large;
 }
 #add-butt:hover{
   width: 100px;
   border-radius: 10px;
   padding: 5px;
   border: 2px solid rgb(165, 79, 107);
-  background-color: rgb(207, 123, 135);
+  background-color: #9E6461;
+  color: #DDA8B9;
 }
 .submit{
   border-radius: 10px;
   padding: 5px;
-  border: 2px solid palevioletred;
+  border: 2px solid #9E6461;
   background-color: rgb(255, 196, 196);
-  color: rgb(16, 16, 17);
+  color: #343b3e;
   font-weight: 300;
 }
 .submit:hover{
   border-radius: 10px;
   padding: 5px;
   border: 2px solid rgb(165, 79, 107);
-  background-color: rgb(207, 123, 135);
-  color: blanchedalmond;
+  background-color: #9E6461;
+  color: #DDA8B9;
 }
 input{
   border-radius: 10px;
@@ -112,8 +119,8 @@ footer{
   align-content: center;
   justify-content: center;
   padding: 20px;
-  background-color: rgb(156, 156, 156);
+  background-color: #8E9199;
   height: 80px;
-
-  
+  color: #343b3e;
+  font-variant: small-caps;
 }
