@@ -47,14 +47,7 @@ class Todo(db.Model):
     def __repr__(self):
         return '<Task %r>' % self.id
 
-
-class TodoSchema(ma.Schema):
-    class Meta:
-        fields = ('id', 'content', 'date_created', 'created_by', 'completed')
-
-todo_schema = TodoSchema()
         
-
 # Add users to database
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
@@ -65,6 +58,11 @@ class User(db.Model, UserMixin):
         return '<User %r>' % self.id
 
 
+@app.route('/api', methods=['GET'])
+def index():
+    return {
+        'name': 'Toimiikos?'
+    }
 
 
 if __name__ == '__main__':
