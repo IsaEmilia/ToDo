@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template, url_for, request, redirect, session, jsonify
+from flask import Flask, redirect, render_template, url_for, request, redirect, session, jsonify, Response
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
@@ -40,12 +40,12 @@ def load_user(user_id):
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(200), nullable=False)
-    date_created = db.Column(db.DateTime, default=datetime.utcnow)
-    created_by = db.Column(db.String(10),) 
-    completed = db.Column(db.Boolean, default=False)
+    #date_created = db.Column(db.DateTime, default=datetime.utcnow)
+    #created_by = db.Column(db.String(10),) 
+    #completed = db.Column(db.Boolean, default=False)
 
     def __repr__(self):
-        return '<Task %r>' % self.id
+        return f'{self.id} {self.content}'
 
         
 # Add users to database
@@ -58,11 +58,15 @@ class User(db.Model, UserMixin):
         return '<User %r>' % self.id
 
 
-@app.route('/api', methods=['GET'])
-def index():
+def todo_serializer(todo):
     return {
-        'name': ['Toimiikos?', 'toimiihan se :)']
+        'id': todo.id,
+        'content': todo.content
     }
+
+@app.route('/', methods=['GET','POST'])
+def index():
+    return jsonify([list(map(todo_serializer, Todo.query.all()))])
 
 
 if __name__ == '__main__':

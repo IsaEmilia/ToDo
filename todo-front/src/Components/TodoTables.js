@@ -1,22 +1,17 @@
 import React, { useState, useEffect } from 'react';
 
 
-const TodoTables = () => {
-    const [todo, setTodo] = useState([])
-
-    useEffect(() => {
-        fetch('/api').then(response => {
-            if(response.ok){
-                return response.json()
-            }
-        }).then(data => console.log(data))
-    },[])
-
+export const TodoTables = ({ todoTable }) => {
+    
     return (
         <div>
-
+            {todoTable.map(todo => {
+                return (
+                    <ul key={todo.id}>
+                        <li>{todo.content}</li>
+                    </ul>
+                )
+            })}
         </div>
     )
 }
-
-export default TodoTables
