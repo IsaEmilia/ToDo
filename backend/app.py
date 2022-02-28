@@ -61,7 +61,7 @@ class User(db.Model, UserMixin):
 @app.route('/api', methods=['GET'])
 def index():
     return {
-        'name': 'Toimiikos?'
+        'name': ['Toimiikos?', 'toimiihan se :)']
     }
 
 
