@@ -35,11 +35,10 @@ const App = () => {
       .then(message => 
         {console.log(message)
         setAddTodo('')
+        getLatestTodos()
         })
   }
-   
-
-
+  
   const getLatestTodos = () => {
     fetch('/').then(response => {
       if(response.ok){
