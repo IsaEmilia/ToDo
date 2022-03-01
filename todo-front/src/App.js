@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "./App.css";
 import {TodoTables} from './Components/TodoTables';
-import {Form} from './Components/Form';
+import {Form} from './Components/form';
 
 
 const App = () => {
@@ -22,9 +22,22 @@ const App = () => {
     console.log(inputValue)
   }
 
+  const handleFormSubmit = () =>{
+    fetch('/create', {
+      method: 'POST',
+      body: JSON.stringify({
+        content: addTodo
+      }),
+      headers: {
+        "content-type": "application/json; charset=UTF-8"
+      }
+    }).then(response => response.json())
+      .then(message => console.log(message))
+  };
+
   return(
     <>
-      <Form userInput={addTodo} onFormChange={handleFormChange}/>
+      <Form userInput={addTodo} onFormChange={handleFormChange} onFormSubmit={handleFormSubmit}/>
       <TodoTables todoTable={todo} />
     </>
   )
