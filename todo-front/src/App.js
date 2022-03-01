@@ -32,8 +32,21 @@ const App = () => {
         "content-type": "application/json; charset=UTF-8"
       }
     }).then(response => response.json())
-      .then(message => console.log(message))
-  };
+      .then(message => 
+        {console.log(message)
+        setAddTodo('')
+        })
+  }
+   
+
+
+  const getLatestTodos = () => {
+    fetch('/').then(response => {
+      if(response.ok){
+        return response.json()
+      }
+    }).then(data => setTodo(data))
+  }
 
   return(
     <>
