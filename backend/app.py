@@ -60,7 +60,10 @@ class Todo(db.Model):
 def todo_serializer(todo):
     return {
         'id': todo.id,
-        'content': todo.content
+        'content': todo.content,
+        'date_created': todo.date_created,
+        'creator': todo.created_by,
+        'completed': todo.completed
     }
 
 
