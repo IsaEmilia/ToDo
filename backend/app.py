@@ -10,6 +10,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import InputRequired, Length, ValidationError
 from flask_bcrypt import Bcrypt
+import json
 
 # ^ important imports ^
 
@@ -48,12 +49,12 @@ class User(db.Model, UserMixin):
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(200), nullable=False)
-    #date_created = db.Column(db.DateTime, default=datetime.utcnow)
-    #created_by = db.Column(db.String(10)) 
-    #completed = db.Column(db.Boolean, default=False)
+    date_created = db.Column(db.DateTime, default=datetime.utcnow)
+    created_by = db.Column(db.String(10)) 
+    completed = db.Column(db.Boolean, default=False)
 
     def __repr__(self):
-        return f'{self.id} {self.content}'
+        return f'{self.id} {self.content} {self.date_created} {self.created_by} {self.completed}'
 
     
 def todo_serializer(todo):
@@ -69,7 +70,7 @@ def index():
 
 @app.route('//create', methods=['POST'])
 def create():
-    request_data = JSON.loads(request.data)
+    request_data = json.loads(request.data)
     todo = Todo(content=request_data['content'])
 
     db.session.add(todo)

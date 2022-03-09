@@ -37,6 +37,7 @@ const App = () => {
         setAddTodo('')
         getLatestTodos()
         })
+        console.log("apuva")
   }
   
   const getLatestTodos = () => {
