@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 
 export const TodoTables = ({ todoTable }) => {
-    
+
+
     return (
         <div>
             <p>tässä pitäisi olla todo kaavio :)</p>
