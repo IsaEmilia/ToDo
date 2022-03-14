@@ -1,3 +1,4 @@
+from shutil import register_unpack_format
 from flask import Flask, redirect, render_template, url_for, request, redirect, session, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
@@ -80,6 +81,10 @@ def create():
     db.session.commit()
 
     return {'201': 'todo created!'}
+
+@app.route('//<int:id>')
+def show(id):
+    return jsonify([*map(todo_serializer, Todo.query.filter_by(id=id))])
 
 
 

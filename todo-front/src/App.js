@@ -1,60 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import "./App.css";
-import {TodoTables} from './Components/TodoTables';
-import {Form} from './Components/form';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"
+import TodoPage from './Pages/TodoPage';
 
 
 const App = () => {
-
-  const [todo, setTodo] = useState([])
-  const [addTodo, setAddTodo] = useState('')
-
-  useEffect(() => {
-      fetch('').then(response => {
-          if(response.ok){
-              return response.json()
-          }
-      }).then(data => setTodo(data))
-  },[])
-
-  const handleFormChange = (inputValue) => {
-    setAddTodo(inputValue)
-    console.log(inputValue)
-  }
-
-  const handleFormSubmit = () =>{
-    fetch('/create', {
-      method: 'POST',
-      body: JSON.stringify({
-        content: addTodo
-      }),
-      headers: {
-        "content-type": "application/json; charset=UTF-8"
-      }
-    }).then(response => response.json())
-      .then(message => 
-        {console.log(message)
-        setAddTodo('')
-        getLatestTodos()
-        })
-        console.log("apuva")
-  }
-  
-  const getLatestTodos = () => {
-    fetch('/').then(response => {
-      if(response.ok){
-        return response.json()
-      }
-    }).then(data => setTodo(data))
-  }
-
   return(
-    <>
-      <Form userInput={addTodo} onFormChange={handleFormChange} onFormSubmit={handleFormSubmit}/>
-      <TodoTables todoTable={todo} />
-    </>
+  <div className='App'>
+    <Router>
+      <Routes>
+
+        <Route path='/'>
+          <TodoPage/>
+        </Route>
+
+      </Routes>
+
+    </Router>
+  </div>
   )
 }
-
 
 export default App;
