@@ -8,12 +8,19 @@ const TodoPage = () => {
     const [addTodo, setAddTodo] = useState('')
   
     useEffect(() => {
-        fetch('/').then(response => {
-            if(response.ok){
+        fetch('/',
+        {method: 'GET',
+             headers: {
+                "content-type": "application/json; charset=UTF-8"}}).then(response => {
+                if(response.ok){
+                    console.log(response)
+                
                 return response.json()
             }
-        }).then(data => setTodo(data))
-    },[])
+        }).then(data => {
+            setTodo(data)
+        })
+    ,[]})
   
     const handleFormChange = (inputValue) => {
       setAddTodo(inputValue)
@@ -34,26 +41,26 @@ const TodoPage = () => {
           {console.log(message)
           setAddTodo('')
           getLatestTodos()
-          })
-          
+          })      
     }
     
     const getLatestTodos = () => {
       fetch('/').then(response => {
         if(response.ok){
+           
           return response.json()
         }
       }).then(data => setTodo(data))
     }
   
     return(
-      <>
+      <div>
       <p>ärrinmurrin</p>
         <Form userInput={addTodo} onFormChange={handleFormChange} onFormSubmit={handleFormSubmit}/>
-        <TodoTables todoTable={todo} />
-      </>
+        <TodoTables todoTable={todo}>{console.log(todo,"todo")}</TodoTables>
+      </div>
     )
   }
   
-  
   export default TodoPage;
+ 

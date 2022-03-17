@@ -1,4 +1,3 @@
-from shutil import register_unpack_format
 from flask import Flask, redirect, render_template, url_for, request, redirect, session, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
@@ -16,6 +15,7 @@ import json
 # ^ important imports ^
 
 app = Flask(__name__)
+CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -71,6 +71,7 @@ def todo_serializer(todo):
 @app.route('/', methods=['GET','POST'])
 def index():
     return jsonify([list(map(todo_serializer, Todo.query.all()))])
+
 
 @app.route('//create', methods=['POST'])
 def create():

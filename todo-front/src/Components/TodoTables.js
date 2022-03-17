@@ -1,38 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 
 
-export const TodoTables = ({ todo, todoTable }) => {
- 
+export const TodoTables = ({ todoTable }) => {
+ console.log(todoTable,"todoTable")
     return (
         <div>
             <p>tässä pitäisi olla todo kaavio :)</p>
-            <table key={todo.id}>
-                        <tr>
-                            <th>Task</th>
-                            <th>Added</th>  
-                            <th>User</th>
-                            <th>Done</th>
-                            <th>Actions</th>
-                        </tr>
-            </table>
 
             {todoTable.map(todo => {
+                console.log("wot")
                 return (
                     <table key={todo.id}>
-                        <tr>
-                            <th>Task</th>
-                            <th>Added</th>  
-                            <th>User</th>
-                            <th>Done</th>
-                            <th>Actions</th>
-                        </tr>
-                        <tr>
-                            <td>{todo.content}</td>
-                            <td>{todo.date_created}</td>
-                            <td>{todo.creator}</td>
-                            <td>{todo.completed}</td>
-                        </tr>
+                        <ul>
+                            <li>{todo.content}</li>
+                            <li>{todo.date_created}</li>
+                            <li>{todo.creator}</li>
+                        </ul>
                     </table>
                 )
             })}
