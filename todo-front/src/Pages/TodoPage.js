@@ -1,4 +1,5 @@
 import React, {useState, useEffect}  from "react";
+import axios from 'axios';
 import { Form } from "../Components/Form";
 import { TodoTables } from "../Components/TodoTables";
 
@@ -8,19 +9,8 @@ const TodoPage = () => {
     const [addTodo, setAddTodo] = useState('')
   
     useEffect(() => {
-        fetch('/',
-        {method: 'GET',
-             headers: {
-                "content-type": "application/json; charset=UTF-8"}}).then(response => {
-                if(response.ok){
-                    console.log(response)
-                
-                return response.json()
-            }
-        }).then(data => {
-            setTodo(data)
-        })
-    ,[]})
+        axios('http://localhost:5000').then(result => {setTodo(result.data)})
+    },[])
   
     const handleFormChange = (inputValue) => {
       setAddTodo(inputValue)
