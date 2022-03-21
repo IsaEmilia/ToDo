@@ -6,12 +6,15 @@ import { TodoTables } from "../Components/TodoTables";
 const TodoPage = () => {
 
     const [todo, setTodo] = useState([])
-    const [addTodo, setAddTodo] = useState('')
+    const [addTodo, setAddTodo] = useState("")
   
     useEffect(() => {
         axios('http://localhost:5000').then(result => {setTodo(result.data)})
     },[])
   
+
+  
+
     const handleFormChange = (inputValue) => {
       setAddTodo(inputValue)
       console.log(inputValue)
