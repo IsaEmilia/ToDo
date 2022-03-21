@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+// Display database entries in a table. 
 
 export const TodoTables = ({ todoTable }) => {
     console.log(todoTable,"todoTable")
@@ -18,7 +18,7 @@ export const TodoTables = ({ todoTable }) => {
                    
                     return (
                         
-                    <tr>
+                    <tr key={todo.id}>
                         <td>{todo.content}</td>
                         <td>{todo.date_created}</td>
                         <td>{todo.creator}</td>

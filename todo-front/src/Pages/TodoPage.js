@@ -12,14 +12,13 @@ const TodoPage = () => {
         axios('http://localhost:5000').then(result => {setTodo(result.data)})
     },[])
   
-
-  
-
+    // log form changes in console for debugging purposes
     const handleFormChange = (inputValue) => {
       setAddTodo(inputValue)
       console.log(inputValue)
     }
   
+    // create database entries on submitting form
     const handleFormSubmit = () =>{
       fetch('/create', {
         method: 'POST',

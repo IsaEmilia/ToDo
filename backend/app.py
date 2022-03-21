@@ -36,7 +36,7 @@ login_manager.login_view = 'login'
 def load_user(user_id):
     return User.query.get(user_id)
 
-# Add users to database
+# Creating the User database
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), nullable=False, unique=True)
@@ -46,7 +46,7 @@ class User(db.Model, UserMixin):
         return '<User %r>' % self.id
 
 
-# Add entries to database
+# Creating the Todo database
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(200), nullable=False)
@@ -56,7 +56,6 @@ class Todo(db.Model):
 
     def __repr__(self):
         return f'{self.id} {self.content} {self.date_created} {self.created_by} {self.completed}'
-
     
 def todo_serializer(todo):
     return {
@@ -67,12 +66,11 @@ def todo_serializer(todo):
         'completed': todo.completed
     }
 
-
 @app.route('/', methods=['GET','POST'])
 def index():
     return jsonify([list(map(todo_serializer, Todo.query.all()))])
 
-
+# Add entries to database
 @app.route('//create', methods=['POST'])
 def create():
     request_data = json.loads(request.data)
@@ -83,10 +81,17 @@ def create():
 
     return {'201': 'todo created!'}
 
-@app.route('//<int:id>')
-def show(id):
-    return jsonify([*map(todo_serializer, Todo.query.filter_by(id=id))])
-
+# Delete entries from database
+@app.route('/delete/<int:id>')
+@login_required
+def delete(id):
+    task_to_delete = Todo.query.get_or_404(id)
+    try:
+        db.session.delete(task_to_delete)
+        db.session.commit()
+        return redirect('/')
+    except:
+        return 'Opps, that went wrong :c'
 
 
 if __name__ == '__main__':
