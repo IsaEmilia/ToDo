@@ -11,6 +11,10 @@ const TodoPage = () => {
     useEffect(() => {
         axios('http://localhost:5000').then(result => {setTodo(result.data)})
     },[])
+    useEffect(() => {
+        axios('http://localhost:5000').then(result => {setTodo(result.data)})
+    },[addTodo])
+  
   
     // log form changes in console for debugging purposes
     const handleFormChange = (inputValue) => {
@@ -44,12 +48,12 @@ const TodoPage = () => {
         }
       }).then(data => setTodo(data))
     }
-  
+
+
     return(
       <div>
-      <p>ärrinmurrin</p>
+        <TodoTables todoTable={todo}></TodoTables>
         <Form userInput={addTodo} onFormChange={handleFormChange} onFormSubmit={handleFormSubmit}/>
-        <TodoTables todoTable={todo}>{console.log(todo,"todo")}</TodoTables>
       </div>
     )
   }

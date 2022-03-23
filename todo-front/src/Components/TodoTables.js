@@ -1,9 +1,15 @@
 import React from 'react';
 
+
 // Display database entries in a table. 
 
 export const TodoTables = ({ todoTable }) => {
-    console.log(todoTable,"todoTable")
+
+    //console.log(todoTable,"todoTable")
+    const handleDelete = () => {
+        console.log('click')
+    }
+
     return (
         <div>
             <table key={'lol'}>
@@ -21,8 +27,12 @@ export const TodoTables = ({ todoTable }) => {
                     <tr key={todo.id}>
                         <td>{todo.content}</td>
                         <td>{todo.date_created}</td>
-                        <td>{todo.creator}</td>
-                        <td><a>♥</a><a>♥</a><a>♥</a></td>
+                        <td>{todo.creator} creator</td>
+                        <td>
+                            <button onClick={handleDelete()}>&#10008;</button>
+                            <button>♥</button>
+                            <button>♥</button>
+                        </td>
                     </tr>
           
                         
