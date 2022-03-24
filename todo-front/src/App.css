@@ -4,28 +4,12 @@
   --dark_turquoise: #21474d;
   --baby_blue: #aaf5f1;
   --gold: #978f1c;
+  --green: #216b46;
 }
-
 
 *{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   margin: 0;
-  
-}
-.header{
-  display: flex;
-  flex-direction: row;
-  align-content: center;
-  justify-content: center;
-  gap: 20px;
-  background-color: var(--turquoise);
-  width: 100%;
-  padding: 20px 0;
-  font-variant: small-caps;
-}
-h1{
-  padding: 10px;
-  color: #343b3e;
 }
 .App{
   background-color: var(--grey);
@@ -33,12 +17,35 @@ h1{
   flex-direction: row;
   align-content: center;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 10px;
   padding: 0 30px;
-  height: 100%;
-
 }
+.header{
+  flex: 1 /-1;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  gap: 20px;
+  background-color: var(--turquoise);
+  padding: 20px 0;
+  font-variant: small-caps;
+  border-radius: 0 0 20px 20px; 
+}
+h1{
+  padding: 10px;
+  color: #343b3e;
+}
+li{
+  list-style: none;
+}
+
+.headbutt{
+  flex-direction: row;
+  align-content: flex-end;
+  justify-content: flex-end;
+}
+
 table{
   margin-top: 20px;
   align-items: left;
@@ -67,11 +74,11 @@ a{
   padding: 2px;
 }
 a:hover{
-  color: var(--gold);
+  color: var(--green);
   text-decoration: none;
 }
 a:visited{
-  color: #DDA8B9;
+  color: var(--green);
 }
 .add-butt{
   width: max-content;
@@ -85,9 +92,9 @@ a:visited{
   width: max-content;
   border-radius: 10px;
   padding: 5px 8px;
-  border: 2px solid var(--gold);
+  border: 2px solid var(--green);
   background-color: var(--baby_blue);
-  color: var(--gold);
+  color: var(--green);
 }
 input{
   border-radius: 10px;
@@ -98,6 +105,8 @@ input{
   border: 2px solid var(--turquoise);
   width: 300px;
   background-color: var(--baby_blue);
+  align-content: center;
+  justify-content: center;
 }
 footer{
   display: flex;
