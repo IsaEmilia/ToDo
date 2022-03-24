@@ -70,6 +70,7 @@ def todo_serializer(todo):
 def index():
     return jsonify([list(map(todo_serializer, Todo.query.all()))])
 
+
 # Add entries to database
 @app.route('//create', methods=['POST'])
 def create():
@@ -88,9 +89,10 @@ def delete_todo(id):
     response = {}
     todo = Todo.query.get(id)
     response['id'] = todo.id  
+    
     db.session.delete(todo)
     db.session.commit()  
-    return 'Done', 201
+    return {'Done', 201}
        
 
 

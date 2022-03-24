@@ -1,45 +1,52 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 
 // Display database entries in a table. 
 
 export const TodoTables = ({ todoTable }) => {
 
+    const [done, setDone] = useState(false)
+
     //console.log(todoTable,"todoTable")
-    const handleDelete = () => {
+    const handleRemove = () => {
         console.log('click')
+    }
+
+    const taskDone = () => {
+        console.log('done')  
     }
 
     return (
         <div>
             <table key={'lol'}>
-                <tr>
-                    <th>Task</th>
-                    <th>Date</th>  
-                    <th>User</th>
-                    <th>Actions</th>    
-                </tr>
+                <tbody>
+                    <tr>
+                        <th>Task</th>
+                        <th>Date</th>  
+                        <th>User</th>
+                        <th>Actions</th>    
+                    </tr>
+                </tbody>
 
-            {todoTable[0]?.map(todo => {
+                {todoTable[0]?.map(todo => {
                    
                     return (
-                        
-                    <tr key={todo.id}>
-                        <td>{todo.content}</td>
-                        <td>{todo.date_created}</td>
-                        <td>{todo.creator} creator</td>
-                        <td>
-                            <button onClick={handleDelete()}>&#10008;</button>
-                            <button>♥</button>
-                            <button>♥</button>
-                        </td>
-                    </tr>
-          
-                        
+                    <tbody>    
+                        <tr key={todo.id}>
+                            <td>{todo.content}</td>
+                            <td>{todo.date_created}</td>
+                            <td>{todo.creator} creator</td>
+                            <td>
+                                <a onClick={handleRemove()}>&#10008;</a>
+                                <a>&#10000;</a>
+                                <a onClick={taskDone()}>&#10004;</a>
+                            </td> 
+                        </tr>
+                    </tbody>
                     )
-                }) 
-            }
-              </table>
+                })
+                }
+            </table>
         </div>
     )
 }

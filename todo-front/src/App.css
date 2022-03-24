@@ -1,14 +1,24 @@
-*{
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+:root{
+  --turquoise:#57c4be ;
+  --grey: #343b3e;
+  --dark_turquoise: #21474d;
+  --baby_blue: #aaf5f1;
+  --gold: #978f1c;
 }
 
+
+*{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin: 0;
+  
+}
 .header{
   display: flex;
   flex-direction: row;
   align-content: center;
   justify-content: center;
   gap: 20px;
-  background-color: rgb(255, 203, 211);
+  background-color: var(--turquoise);
   width: 100%;
   padding: 20px 0;
   font-variant: small-caps;
@@ -18,7 +28,7 @@ h1{
   color: #343b3e;
 }
 .App{
-  background-color: #343b3e;
+  background-color: var(--grey);
   display: flex;
   flex-direction: row;
   align-content: center;
@@ -30,15 +40,15 @@ h1{
 
 }
 table{
+  margin-top: 20px;
   align-items: left;
   align-content: left;
-  border: 4px solid pink;
+  border: 4px solid var(--turquoise);
   border-radius: 20px;  
   min-width: 80%;
-  color: rgb(185, 86, 119);
-  background-color: rgb(253, 235, 235);
+  color: var(--dark_turquoise);
+  background-color: var(--baby_blue);
   overflow-x:auto;
-
 }
 th{
   height: 50px;
@@ -46,19 +56,18 @@ th{
 th, td {
   padding: 5px 10px;
 }
-tr:nth-child(even) {
-  background-color: #ecbfbf;
-  
+tbody:nth-child(even) {
+  background-color: var(--turquoise);
 }
 a{
   text-decoration: none;
-  color: #9E6461;
+  color: var(--grey);
   font-weight: bold;
   cursor: pointer;
   padding: 2px;
 }
 a:hover{
-  color: #343b3e;
+  color: var(--gold);
   text-decoration: none;
 }
 a:visited{
@@ -68,17 +77,17 @@ a:visited{
   width: max-content;
   border-radius: 10px;
   padding: 5px, 8px;
-  border: 2px solid #9E6461;
-  background-color: rgb(255, 196, 196);
+  border: 2px solid var(--turquoise);
+  background-color: var(--baby_blue);
   font-size: large;
 }
 .add-butt:hover{
   width: max-content;
   border-radius: 10px;
   padding: 5px 8px;
-  border: 2px solid rgb(165, 79, 107);
-  background-color: #9E6461;
-  color: #DDA8B9;
+  border: 2px solid var(--gold);
+  background-color: var(--baby_blue);
+  color: var(--gold);
 }
 input{
   border-radius: 10px;
@@ -86,9 +95,9 @@ input{
   font-variant: small-caps;
   letter-spacing: 1px;
   margin: 10px;
-  border: 2px solid palevioletred;
+  border: 2px solid var(--turquoise);
   width: 300px;
-  background-color: #f1dbdb;
+  background-color: var(--baby_blue);
 }
 footer{
   display: flex;
@@ -99,8 +108,4 @@ footer{
   height: 80px;
   color: #343b3e;
   font-variant: small-caps;
-}
-button{
-  border: none;
-  
 }

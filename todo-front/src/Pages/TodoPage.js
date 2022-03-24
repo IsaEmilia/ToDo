@@ -2,6 +2,7 @@ import React, {useState, useEffect}  from "react";
 import axios from 'axios';
 import { Form } from "../Components/Form";
 import { TodoTables } from "../Components/TodoTables";
+import Header from "../Components/Header";
 
 const TodoPage = () => {
 
@@ -11,11 +12,7 @@ const TodoPage = () => {
     useEffect(() => {
         axios('http://localhost:5000').then(result => {setTodo(result.data)})
     },[])
-    useEffect(() => {
-        axios('http://localhost:5000').then(result => {setTodo(result.data)})
-    },[addTodo])
-  
-  
+
     // log form changes in console for debugging purposes
     const handleFormChange = (inputValue) => {
       setAddTodo(inputValue)
@@ -52,6 +49,7 @@ const TodoPage = () => {
 
     return(
       <div>
+        <Header/>
         <TodoTables todoTable={todo}></TodoTables>
         <Form userInput={addTodo} onFormChange={handleFormChange} onFormSubmit={handleFormSubmit}/>
       </div>
