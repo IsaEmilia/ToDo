@@ -11,10 +11,10 @@ export const Form = ({userInput, onFormChange, onFormSubmit}) => {
     };
     
     return(
-    <div>
+    <div className="form">
         <form onSubmit={handleSubmit}>
             <input type='text' required value={userInput} onChange={handleChange}></input>
-            <input className="add-butt" type='submit'></input>
+            <input className="add-butt" type='submit' value='&#10148;'></input>
         </form>
     </div>
     )

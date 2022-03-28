@@ -12,6 +12,9 @@ const TodoPage = () => {
     useEffect(() => {
         axios('http://localhost:5000').then(result => {setTodo(result.data)})
     },[])
+    useEffect(() => {
+      axios('http://localhost:5000').then(result => {setTodo(result.data)})
+  },[addTodo])
 
     // log form changes in console for debugging purposes
     const handleFormChange = (inputValue) => {
@@ -19,7 +22,7 @@ const TodoPage = () => {
       console.log(inputValue)
     }
   
-    // create database entries on submitting form
+    // create database entries when submitting form
     const handleFormSubmit = () =>{
       fetch('/create', {
         method: 'POST',
@@ -34,7 +37,7 @@ const TodoPage = () => {
           {console.log(message)
           setAddTodo('')
           getLatestTodos()
-          })      
+          },[])      
     }
     
     const getLatestTodos = () => {

@@ -4,7 +4,8 @@
   --dark_turquoise: #21474d;
   --baby_blue: #aaf5f1;
   --gold: #978f1c;
-  --green: #216b46;
+  --green: #278053;
+  --light_grey: #5c676b;
 }
 
 *{
@@ -76,6 +77,7 @@ a{
 a:hover{
   color: var(--green);
   text-decoration: none;
+  font-size: 15px;
 }
 a:visited{
   color: var(--green);
@@ -83,18 +85,23 @@ a:visited{
 .add-butt{
   width: max-content;
   border-radius: 10px;
-  padding: 5px, 8px;
   border: 2px solid var(--turquoise);
   background-color: var(--baby_blue);
   font-size: large;
+  color: var(--dark_turquoise);
 }
 .add-butt:hover{
   width: max-content;
   border-radius: 10px;
-  padding: 5px 8px;
   border: 2px solid var(--green);
+  color: var(--green);
   background-color: var(--baby_blue);
   color: var(--green);
+}
+form{
+  display: flex;
+  justify-content: center;
+
 }
 input{
   border-radius: 10px;
@@ -103,7 +110,7 @@ input{
   letter-spacing: 1px;
   margin: 10px;
   border: 2px solid var(--turquoise);
-  width: 300px;
+  width: 250px;
   background-color: var(--baby_blue);
   align-content: center;
   justify-content: center;
@@ -117,4 +124,8 @@ footer{
   height: 80px;
   color: #343b3e;
   font-variant: small-caps;
+}
+.taskDone{
+  text-decoration: line-through;
+  color: var(--light_grey);
 }

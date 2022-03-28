@@ -70,7 +70,6 @@ def todo_serializer(todo):
 def index():
     return jsonify([list(map(todo_serializer, Todo.query.all()))])
 
-
 # Add entries to database
 @app.route('//create', methods=['POST'])
 def create():
@@ -82,17 +81,17 @@ def create():
 
     return {'201': 'todo created!'}
 
-# Delete entries from database
-@app.route('/delete/<int:id>', methods=['DELETE'])
-#@login_required
-def delete_todo(id):
-    response = {}
-    todo = Todo.query.get(id)
-    response['id'] = todo.id  
-    
-    db.session.delete(todo)
-    db.session.commit()  
-    return {'Done', 201}
+# code for deleting entries
+@app.route('/delete/<int:id>')
+
+def delete(id):
+    task_to_delete = Todo.query.get_or_404(id)
+    try:
+        db.session.delete(task_to_delete)
+        db.session.commit()
+        return redirect('/')
+    except:
+        return 'Opps, that went wrong :c'
        
 
 
