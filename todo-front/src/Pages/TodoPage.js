@@ -13,13 +13,14 @@ const TodoPage = () => {
         axios('http://localhost:5000').then(result => {setTodo(result.data)})
     },[])
     useEffect(() => {
-      axios('http://localhost:5000').then(result => {setTodo(result.data)})
+      axios('http://localhost:5000').then(result => {setTodo(result.data)}) //Update todo list without refreshing page
   },[addTodo])
+  
 
     // log form changes in console for debugging purposes
     const handleFormChange = (inputValue) => {
       setAddTodo(inputValue)
-      console.log(inputValue)
+     // console.log(inputValue)
     }
   
     // create database entries when submitting form

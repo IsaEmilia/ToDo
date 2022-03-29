@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 const Header = () => {
 
@@ -8,7 +9,9 @@ const Header = () => {
             <ul className="headbutt">
                 <li><a>log in</a></li>
                 <li><a>register</a></li>
-                <li><a href="todo-front\src\Pages\Dashboard.js">dashboard</a></li>
+                <Link to='/dashboard'>
+                    <li><a>dashboard</a></li>
+                </Link>
             </ul>
         </div>
     )
