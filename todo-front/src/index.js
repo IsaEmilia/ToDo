@@ -2,10 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import Dashboard from './Pages/Dashboard';
+import { Update } from './Components/Update';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+          <Switch>
+          <Route path='/'>
+            <App />
+          </Route>
+          <Route path='/Dashboard' component={Dashboard}>
+         </Route>
+            <Route path='/update'>
+           <Update />
+          </Route>
+        </Switch>
+      </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

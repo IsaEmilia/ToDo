@@ -8,9 +8,6 @@ import axios from 'axios';
 export const TodoTables = ({ todoTable }) => {
     const [style, setStyle] = useState('table');
     const [APIdata, setAPIData] = useState([]);
-    
-    console.log(todoTable,"todoTable")
-
 
     const getData = () => {
         axios.get('http://localhost:5000')
@@ -22,14 +19,15 @@ export const TodoTables = ({ todoTable }) => {
     const handleRemove = (id) => {
         console.log('delete',id)
         
-        axios.delete('http://localhost:5000' +id).then(()=> {
+        axios('http://localhost:5000/delete/' + id, {method: 'DELETE'}).then(()=> {
             getData();
+            console.log('jotain')
         })
     }
 
     // Change the style of completed tasks to text-decoration: line-through and color: grey
     const taskDone = (id) => {
-        console.log('style change', id) 
+        console.log('change style of', id) 
         //setStyle('taskDone')
     }
 
