@@ -1,15 +1,10 @@
 from flask import Flask, redirect, render_template, url_for, request, redirect, session, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
-from sqlalchemy import JSON, ForeignKey
+from sqlalchemy import JSON
 from flask_migrate import Migrate
 from flask_cors import CORS
 from flask_marshmallow import Marshmallow
-from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import InputRequired, Length, ValidationError
-from flask_bcrypt import Bcrypt
 import json
 
 # ^ important imports ^
@@ -25,25 +20,8 @@ db = SQLAlchemy(app)
 migrate = Migrate()
 ma = Marshmallow(app)
 cors = CORS()
-bcrypt = Bcrypt(app)
 app.config['SECRET_KEY'] = 'notimportant'
 
-login_manager = LoginManager()
-login_manager.init_app(app)
-login_manager.login_view = 'login'
-
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(user_id)
-
-# Creating the User database
-class User(db.Model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(20), nullable=False, unique=True)
-    password = db.Column(db.String(80), nullable=False )
-
-    def __repr__(self):
-        return '<User %r>' % self.id
 
 
 # Creating the Todo database
@@ -83,7 +61,6 @@ def create():
 
 # code for deleting entries
 @app.route('/delete/<int:id>')
-
 def delete(id):
     task_to_delete = Todo.query.get_or_404(id)
     try:
